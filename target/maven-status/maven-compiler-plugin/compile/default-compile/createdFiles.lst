@@ -1,0 +1,14 @@
+Models\Clasificacion.class
+Models\Filmografia.class
+Models\Pais.class
+Models\Reparto.class
+DbManager\DbManager.class
+Daos\FilmografiaDao.class
+Models\Genero.class
+Models\Suscripcion.class
+Models\Film_genero.class
+netflix\Netflix.class
+Models\Factura.class
+Models\Tipo_suscripcion.class
+Models\Cuenta.class
+Models\Acceso.class
