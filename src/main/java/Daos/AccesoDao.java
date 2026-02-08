@@ -4,7 +4,11 @@
  */
 package Daos;
 
+import Models.Acceso;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -22,5 +26,63 @@ public class AccesoDao {
     //Constructor
     public AccesoDao(Connection conn) {
         this.conn = conn;
+    }
+    
+    
+    // Metodo para listar todo 
+    
+    public void ListAll() throws SQLException {
+
+        try {
+           
+            PreparedStatement stmt = conn.prepareStatement(LISTALL);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                
+        Acceso ac = new Acceso();
+
+                ac.setId_acceso(rs.getInt("id_acceso"));
+                ac.setId_filmografia(rs.getInt("id_filmografia"));
+                ac.setId_cuenta(rs.getInt("id_cuenta"));
+                ac.setFecha_acceso(rs.getDate("fecha_acceso"));
+                ac.setTipo_suscripcion_id(rs.getInt("tipo_suscripcion_id"));
+
+                System.out.println(ac.toString());
+            }
+
+
+        } catch (SQLException e) {
+            System.out.println("Error en list all" + e.getMessage() + e);
+        }
+
+    }
+
+    // Metodo para listar una fila 
+    
+    public void ListOne(int id) {
+
+        try {
+
+            PreparedStatement stmt = conn.prepareStatement(LISTONE);
+           // stmt.setInt(1, 4); // En la primera ?, el valor 4
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            
+           
+                Acceso ac = new Acceso();
+
+                ac.setId_acceso(rs.getInt("id_acceso"));
+                ac.setId_filmografia(rs.getInt("id_filmografia"));
+                ac.setId_cuenta(rs.getInt("id_cuenta"));
+                ac.setFecha_acceso(rs.getDate("fecha_acceso"));
+                ac.setTipo_suscripcion_id(rs.getInt("tipo_suscripcion_id"));
+
+                System.out.println(ac.toString());    
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + e);
+        }
     }
 }

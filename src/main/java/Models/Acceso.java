@@ -15,7 +15,6 @@ public class Acceso {
     //Atributos son las columnas de la tabla
     private int id_acceso;
     private int id_filmografia;
-    ;
     private int id_cuenta;
     private Date fecha_acceso;
     private int tipo_suscripcion_id;

@@ -58,7 +58,7 @@ public class DbManager {
     public void conectar() {
         try {
             conexion = DriverManager.getConnection(URL, USER, PASS);
-            System.out.println("Conexión exitosa a la base de datos.");
+           // System.out.println("Conexion exitosa a la base de datos.");
         } catch (SQLException e) {
             System.err.println("Error al conectar: " + e.getMessage());
         }
@@ -68,7 +68,7 @@ public class DbManager {
         try {
             if (this.conexion != null && !this.conexion.isClosed()) {
                 this.conexion.close(); // Cerrar siempre para evitar fuga de memoria
-                System.out.println("Desconexion exitosa");
+                //System.out.println("Desconexion exitosa");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage() + " ERROR AL CONECTAR ");
