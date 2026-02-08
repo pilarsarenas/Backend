@@ -23,7 +23,7 @@ public class DbManager {
     private Connection conexion = null;
 
     //Static porque pertenecen a la clase y no al objeto
-    //Final poruqe no se van a modificar
+    //Final porque no se van a modificar
     
     //Get y Set
     public static Dotenv getDotenv() {
